@@ -1,14 +1,14 @@
 import React from "react";
-import { Piano, KeyBoardShortcuts, MidiNumbers } from 'react-piano';
+import { Piano, KeyboardShortcuts, MidiNumbers } from 'react-piano';
 import 'react-piano/dist/styles.css';
 
 function Home(){
     const firstNote = MidiNumbers.fromNote('c3');
     const lastNote = MidiNumbers.fromNote('f5');
-    const keyboardShortcuts = KeyBoardShortcuts.create({
+    const keyboardShortcuts = KeyboardShortcuts.create({
         firstNote: firstNote,
         lastNote: lastNote,
-        keyboardConfig: KeyBoardShortcuts.HOME_ROW,
+        keyboardConfig: KeyboardShortcuts.HOME_ROW,
     });
     
     return(
