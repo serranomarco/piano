@@ -5,8 +5,8 @@ import Soundfont from 'soundfont-player';
 function SoundfontProvider(props){
     const [activeAudioNodes, setActiveAudioNode] = useState({});
     const [instrument, setIntstrument] = useState(null);
-    
-    static const propTypes = {
+
+    const propTypes = {
         instrumentName: PropTypes.string.isRequired,
         hostname: PropTypes.string.isRequired,
         format: PropTypes.oneOf(['mp3', 'ogg']),
@@ -15,7 +15,7 @@ function SoundfontProvider(props){
         render: PropTypes.func
     };
 
-    static const defaultProps = {
+    const defaultProps = {
         format: 'mp3',
         soundfont: 'MusyngKite',
         instrumentName: 'acoustic_grand_piano'
