@@ -21,6 +21,25 @@ function SoundfontProvider(props){
         instrumentName: 'acoustic_grand_piano'
     };
 
+    playNote = midiNumber => {
+        audioContext.resume().then(() => {
+            const audioNode = instrument.play(midiNumber);
+        })
+    }
+
+    stopNote = midiNumber => {
+        audioContext.resume().then(() => {
+            if(!activeAudioNodes[midiNumber]) {
+                return;
+            }
+            const audioNode = activeAudioNodes[midiNumber];
+            audioNode.stop();
+            setActiveAudioNode(Object.assign({}, activeAudioNodes, {
+                [midiNumber]: null,
+            }));
+        });
+    };
+
     stopAllNotes = () => {
         props.audioContext.resume().then(() => {
             const activeAudioNodes.forEach(node => {
@@ -30,7 +49,7 @@ function SoundfontProvider(props){
             });
             setActiveAudioNode({});
         })
-    }
+    };
 
 
     return(
