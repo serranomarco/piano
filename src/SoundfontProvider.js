@@ -21,7 +21,26 @@ function SoundfontProvider(props){
         instrumentName: 'acoustic_grand_piano'
     };
 
+    stopAllNotes = () => {
+        props.audioContext.resume().then(() => {
+            const activeAudioNodes.forEach(node => {
+                if(node) {
+                    node.stop();
+                }
+            });
+            setActiveAudioNode({});
+        })
+    }
+
 
     return(
+        props.render({
+            isLoading: !instrument,
+            playNote: playNote,
+            stopNote: stopNote,
+            stopAllNotes: stopAllNotes
+        })
     );
 }
+
+export default SoundfontProvider;
